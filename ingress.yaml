@@ -17,9 +17,10 @@ spec:
           - pathType: Prefix
             path: /
             backend:
-              name: factorio-server
-              port:
-                number: 34197
+              service:
+                name: factorio-server
+                port:
+                  number: 34197
     - host: factorio.spof.tech
       http:
         paths:
