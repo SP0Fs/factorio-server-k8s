@@ -1,0 +1,43 @@
+apiVersion: apps/v1beta2
+kind: StatefulSet
+metadata:
+  name: factorio-server
+  namespace: factorio-server
+  labels:
+    app: factorio-server
+spec:
+  serviceName: factorio-server
+  replicas: 1
+  selector:
+    matchLabels:
+      app: factorio-server
+  template:
+    metadata:
+      labels:
+        app: factorio-server
+    spec:
+      containers:
+        - name: factorio-server
+          image: "factoriotools/factorio:1.1.99"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: factorio-udp
+              containerPort: 34197
+              protocol: UDP
+            - name: factorio-tcp
+              containerPort: 27015
+              protocol: TCP
+          volumeMounts:
+            - name: factorio-data
+              mountPath: /factorio
+            - name: factorio-config
+              mountPath: /factorio/config
+          securityContext:
+            runAsUser: 0
+      volumes:
+        - name: factorio-data
+          persistentVolumeClaim:
+            claimName: factorio-server-data
+        - name: factorio-config
+          configMap:
+            name: factorio-config

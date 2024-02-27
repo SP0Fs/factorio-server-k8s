@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: factorio-server
+  namespace: factorio-server
+  labels:
+    app: factorio-server
+spec:
+  rules:
+    - host: factorio.spof.tech
+      http:
+        paths:
+          - backend:
+              serviceName: factorio-server
+              servicePort: 34197
+    - host: factorio.spof.tech
+      http:
+        paths:
+          - backend:
+              serviceName: factorio-server
+              servicePort: 27015
