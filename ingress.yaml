@@ -15,6 +15,7 @@ spec:
       http:
         paths:
           - pathType: Prefix
+            path: /
             backend:
               serviceName: factorio-server
               servicePort: 34197
@@ -22,6 +23,7 @@ spec:
       http:
         paths:
           - pathType: Prefix
+            path: /
             backend:
               serviceName: factorio-server
               servicePort: 27015
