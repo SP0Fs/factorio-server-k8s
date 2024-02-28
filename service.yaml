@@ -6,14 +6,14 @@ metadata:
   labels:
     app: factorio-server
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - name: factorio-udp
-      port: 34197
+      port: 32197
       targetPort: 34197
-      protocol: UDP 
+      protocol: UDP
     - name: factorio-tcp
-      port: 27015
+      port: 32015
       targetPort: 27015
       protocol: TCP
   selector:
