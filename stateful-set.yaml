@@ -29,6 +29,9 @@ spec:
             - name: factorio-tcp
               containerPort: 27015
               protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: factorio-config
           volumeMounts:
             - name: factorio-data
               mountPath: /factorio

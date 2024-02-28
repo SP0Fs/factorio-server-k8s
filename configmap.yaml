@@ -4,11 +4,4 @@ metadata:
   name: factorio-config
   namespace: factorio-server
 data:
-  server-whitelist.json: |
-    [
-      "XDawanX"
-    ]
-  server-adminlist.json: |
-    [
-      "XDawanX"
-    ]
+  BIND: "192.168.179.5:27015"
