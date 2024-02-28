@@ -4,4 +4,4 @@ metadata:
   name: factorio-config
   namespace: factorio-server
 data:
-  BIND: "192.168.179.5:27015"
+  BIND: "192.168.179.5"
