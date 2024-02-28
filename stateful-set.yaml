@@ -16,8 +16,10 @@ spec:
       labels:
         app: factorio-server
     spec:
+      hostNetwork: true
       nodeSelector:
         kubernetes.io/arch: amd64
+        kubernetes.io/hostname: c-nuc7
       containers:
         - name: factorio-server
           image: "factoriotools/factorio:1.1.104"
