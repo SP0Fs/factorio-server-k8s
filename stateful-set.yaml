@@ -29,6 +29,11 @@ spec:
             - name: factorio-tcp
               containerPort: 27015
               protocol: TCP
+          env:
+            - name: BIND
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
           envFrom:
             - configMapRef:
                 name: factorio-config
