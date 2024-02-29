@@ -5,3 +5,5 @@ metadata:
   namespace: factorio-server
 data:
   UPDATE_MODS_ON_START: "true"
+  GENERATE_NEW_SAVE: "true"
+  SAVE_NAME: "SPoF"
