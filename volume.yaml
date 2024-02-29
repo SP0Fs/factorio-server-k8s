@@ -3,15 +3,26 @@ kind: PersistentVolumeClaim
 metadata:
   name: factorio-server-data
   namespace: factorio-server
-  labels:
-    app: factorio-server
 spec:
-  metadata:
-    labels:
-      app: factorio-server
-  storageClassName: ssd
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: "15Gi"
+      storage: 15Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: factorio-server-data
+  namespace: factorio-server
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 15Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/factorio"
